@@ -1,0 +1,32 @@
+#!/usr/bin/env node
+
+var app = require('../app');
+var http = require('http');
+
+var port = process.env.PORT || '443';
+app.set('port', port);
+
+const onError = err => {
+  if (error.syscall !== 'listen') throw error;
+
+  switch (error.code) {
+    case 'EACCES':
+      console.error(port + ' requires elevated privileges');
+      process.exit(1);
+      break;
+    case 'EADDRINUSE':
+      console.error(port + ' is already in use');
+      process.exit(1);
+      break;
+    default:
+      throw error;
+  }
+};
+
+const onListening = () => console.info('Listening on ' + server.address().port);
+
+var server = http.createServer(app);
+
+server.listen(port);
+server.on('error', onError);
+server.on('listening', onListening);
