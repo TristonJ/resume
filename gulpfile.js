@@ -13,7 +13,7 @@ gulp.task('less', () =>
 
 gulp.task('buildCSS', ['less']);
 gulp.task('buildJS', () =>
-  gulp.src('assets')
+  gulp.src('./assets/js/**/*.js')
       .pipe(gulp.dest('./public/js'))
 );
 
