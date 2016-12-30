@@ -1,0 +1,19 @@
+{
+  "name": "triston-jones",
+  "version": "1.0.0",
+  "description": "A personal website for Triston Jones",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/TristonJ/triston-jones.git"
+  },
+  "author": "Triston Jones",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TristonJ/triston-jones/issues"
+  },
+  "homepage": "https://github.com/TristonJ/triston-jones#readme"
+}
