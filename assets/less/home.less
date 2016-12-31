@@ -1,0 +1,76 @@
+@import "variables";
+@import "animations";
+
+#main-title {
+  font-size: 98px;
+  font-weight: 500;
+  color: @white;
+}
+
+#subtitle {
+  font-size: 70px;
+  color: @almost-white;
+}
+
+.home-background {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  background-color: @primary-color;
+}
+
+.home-content {
+  position: absolute;
+  top: 25%;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  text-align: center;
+}
+
+.home-logos {
+  position: relative;
+  top: 90%;
+  width: 100%;
+  display: inline-block;
+  text-align: center;
+  a {
+    position: relative;
+  }
+  a::after {
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.home-nav {
+  display: inline-block;
+  font-size: 32px;
+  padding: 0;
+  margin: 0;
+  li {
+    display: inline-block;
+    list-style: none;
+    .anim-float;
+  }
+  a {
+    text-decoration: none;
+    text-transform: lowercase;
+    color: @almost-white;
+    padding: 0 .5em 0 .5em;
+  }
+}
+
+.svg-logo {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+}

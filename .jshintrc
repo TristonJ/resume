@@ -3,5 +3,9 @@
   "esversion": 6,
   "lastsemic": true,
   "loopfunc": true,
-  "undef": true
+  "undef": true,
+  "globals": {
+    "$": false,
+    "document": false
+  }
 }

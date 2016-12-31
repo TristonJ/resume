@@ -1,0 +1,10 @@
+.anim-float {
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px transparent;
+  transition-duration: 0.3s;
+  transition-property: transform;
+  transition-timing-function: ease-out;
+  &:hover, &:focus, &:active {
+    transform: translateY(-6px);
+  }
+}
