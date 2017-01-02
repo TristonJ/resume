@@ -14,6 +14,12 @@ app.use(express.static(__dirname + '/public', {maxAge: CACHE_TIME*1000}));
 app.use((req, res, next) => {
   res.set('Cache-Control', 'public, max-age=' + CACHE_TIME);
   res.set('X-Powered-By', 'Triston Jones!');
+  res.set('X-XSS-Protection', '1; mode=block');
+  res.set('Content-Security-Policy',
+    "default-src 'none'; img-src 'self';" +
+    "script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com;" +
+    "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com;" +
+    "font-src 'self' https://fonts.gstatic.com data:;");
   next();
 });
 
