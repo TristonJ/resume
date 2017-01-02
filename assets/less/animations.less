@@ -8,3 +8,14 @@
     transform: translateY(-6px);
   }
 }
+
+.anim-grow {
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px transparent;
+  transition-duration: 0.3s;
+  transition-property: transform;
+  transition-timing-function: ease-out;
+  &:hover, &:focus, &:active {
+    transform: scale(1.2);
+  }
+}

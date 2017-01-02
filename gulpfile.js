@@ -7,7 +7,7 @@ var gulp = require('gulp'),
     rename = require('gulp-rename'),
     AutoPrefix = require('less-plugin-autoprefix');
 
-var autoprefix = new AutoPrefix({browsers: ['last 2 versions']});
+var autoprefix = new AutoPrefix({browsers: ['last 2 versions', '> 5%']});
 
 gulp.task('less', () =>
   gulp.src('./assets/less/**/*.less')
