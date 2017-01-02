@@ -3,12 +3,18 @@ var express = require('express'),
 
 var app = express();
 
-const CACHE_TIME = 100 * 60 * 60 * 24 * 7;
+const CACHE_TIME = 60 * 60 * 24 * 7;
 
 app.set('views', __dirname + '/views');
 app.set('view engine', 'pug');
 app.use(morgan('dev'));
-app.use(express.static(__dirname + '/public', {maxAge: CACHE_TIME}));
+app.use(express.static(__dirname + '/public', {maxAge: CACHE_TIME*1000}));
+
+// Cache all pages by default
+app.use((req, res, next) => {
+  res.set('Cache-Control', 'public, max-age=' + CACHE_TIME);
+  next();
+});
 
 /**
  * Routers
