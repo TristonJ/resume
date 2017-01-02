@@ -13,6 +13,7 @@ app.use(express.static(__dirname + '/public', {maxAge: CACHE_TIME*1000}));
 // Cache all pages by default
 app.use((req, res, next) => {
   res.set('Cache-Control', 'public, max-age=' + CACHE_TIME);
+  res.set('X-Powered-By', 'Triston Jones!');
   next();
 });
 
