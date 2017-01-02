@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /resume.md
+Disallow: /resume.pdf
+Disallow: /resume.txt
