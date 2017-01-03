@@ -67,7 +67,8 @@
     display: inline-table;
     position: relative;
     padding: 20px;
-    margin: 30px;
+    transition: margin 1s ease-in-out;
+    .card;
     &:hover {
       box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
     }
@@ -116,9 +117,6 @@
       }
     }
   }
-  .about-section {
-    .card;
-  }
 }
 
 .contact-content {
@@ -141,7 +139,7 @@
 
 .home-nav {
   display: block;
-  font-size: 32px;
+  font-size: 52px;
   padding: 0;
   margin: 0;
   li {
@@ -167,6 +165,19 @@
   .about-section {
     display: block;
     margin: 2.5%;
+  }
+  .about-content {
+    .expand-margin {
+      margin: 2.5%;
+    }
+    .shrink-margin {
+      margin-top: 1%;
+      margin-bottom: 1%;
+    }
+  }
+  .svg-logo {
+    width: 160px;
+    height: 160px;
   }
 }
 
@@ -205,6 +216,18 @@
     width: 825px;
     height: 455px;
   }
+  .about-content {
+    .expand-margin {
+      margin: 30px;
+    }
+    .shrink-margin {
+      margin: 10px;
+    }
+  }
+  .svg-logo {
+    width: 100px;
+    height: 100px;
+  }
 }
 
 .svg-link {
@@ -222,8 +245,6 @@
 
 .svg-logo {
   display: inline-block;
-  width: 100px;
-  height: 100px;
   .anim-float;
 }
 
@@ -239,7 +260,6 @@
 .card {
   background: white;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  transition: 0.3s;
 }
 
 #fp-nav ul li a span, .fp-slidesNav ul li a span {
