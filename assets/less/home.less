@@ -126,6 +126,14 @@
   #home-next {
     display: none;
   }
+  .nonstatic-logos {
+    display: block;
+    margin-top: 150px;
+    text-align: center;
+  }
+  .home-logos {
+    display: none;
+  }
 }
 
 @media all and (min-width: 1025px) {
@@ -161,6 +169,12 @@
       .anim-bob;
     }
   }
+  .nonstatic-logos {
+    display: none;
+  }
+  .home-logos {
+    display: inline-block;
+  }
 }
 
 .home-logos {
@@ -169,7 +183,6 @@
   bottom: 0;
   width: 100%;
   padding: 0 0 1% 0;
-  display: inline-block;
   text-align: center;
   z-index: 5;
   .svg-link;
