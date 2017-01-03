@@ -24,20 +24,13 @@
 }
 
 .home-content, .resume-content, .about-content, .contact-content {
-  position: absolute;
   left: 0;
   width: 100%;
   overflow: hidden;
   text-align: center;
 }
 
-.home-content {
-  top: 25%;
-}
-
 .resume-content {
-  top: 10%;
-  text-align: center;
   h1 {
     position: relative;
     color: @off-white;
@@ -62,7 +55,6 @@
 }
 
 .about-content {
-  top: 0;
   color: @off-white;
   text-align: center;
   h1, h2 {
@@ -84,13 +76,13 @@
 }
 
 .contact-content {
-  top: 5%;
   color: @off-white;
   text-align: center;
   h1 {
     position: relative;
     color: @off-white;
     font-size: 80px;
+    word-break: break-word;
     a {
       text-decoration: none;
       color: @white;
@@ -104,7 +96,7 @@
 }
 
 .home-nav {
-  display: inline-block;
+  display: block;
   font-size: 32px;
   padding: 0;
   margin: 0;
@@ -131,6 +123,9 @@
   .about-content p {
     margin: 0 5px 0 5px;
   }
+  #home-next {
+    display: none;
+  }
 }
 
 @media all and (min-width: 1025px) {
@@ -141,29 +136,30 @@
     bottom: 0;
     padding: 0 0 15px 15px;
     z-index: 100;
-    a {
-      position: relative;
-      svg {
-        width: 60px;
-        height: 60px;
-        .anim-grow;
-      }
-    }
-    a::after {
-      content: "";
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+    .svg-link;
+    a svg {
+      width: 60px;
+      height: 60px;
+      .anim-grow;
     }
   }
-
   .about-content p {
     margin: 0 25% 0 25%;
   }
-
   .resume-content ul {
     margin: 10% 0 0 0;
+  }
+  #home-next {
+    display: block;
+    text-align: center;
+    position: relative;
+    margin: 200px 0 0 0;
+    .svg-link;
+    svg {
+      width: 120px;
+      height: 120px;
+      .anim-bob;
+    }
   }
 }
 
@@ -176,6 +172,10 @@
   display: inline-block;
   text-align: center;
   z-index: 5;
+  .svg-link;
+}
+
+.svg-link {
   a {
     position: relative;
   }

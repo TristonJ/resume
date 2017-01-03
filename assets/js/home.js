@@ -1,1 +1,3 @@
-$(document).ready(function() {$('#fullpage').fullpage({scrollBar:true, navigation:true,fitToSectionDelay:200});});
+$(document).ready(function() {
+  $('#fullpage').fullpage({navigation:true,fitToSectionDelay:200,scrollOverflow:true});
+});
