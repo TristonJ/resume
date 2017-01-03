@@ -23,6 +23,10 @@
   z-index: -1;
 }
 
+#home-section, #resume-section, #about-section, #contact-section {
+  background-color: transparent;
+}
+
 .home-content, .resume-content, .about-content, .contact-content {
   left: 0;
   width: 100%;
@@ -57,21 +61,63 @@
 .about-content {
   color: @off-white;
   text-align: center;
-  h1, h2 {
+  margin-bottom: 20px;
+  padding-bottom: 1%;
+  .about-section {
+    display: inline-table;
     position: relative;
-    color: @off-white;
-    font-size: 80px;
-    margin-left: 5px;
-    margin-right: 5px;
+    padding: 20px;
+    margin: 30px;
+    &:hover {
+      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    }
+    .about-title, .about-title-white {
+      position: relative;
+      font-size: 80px;
+      font-weight: 300;
+      margin-left: 5px;
+      margin-right: 5px;
+    }
+    .about-title {
+      color: @black;
+    }
+    .about-title-white {
+      color: @white;
+    }
+    p {
+      text-indent: 50px;
+      text-align: left;
+      position: relative;
+      font-size: 32px;
+      font-weight: 300;
+      color: @almost-black;
+    }
+    ul {
+      position: relative;
+      text-align: center;
+      display: block;
+      color: @almost-black;
+      width: 100%;
+      padding: 0;
+      li {
+        display: inline-block;
+        color: @almost-black;
+        font-size: 32px;
+        font-weight: 300;
+        padding: 0 .2em;
+        &:before {
+          content: '\00a0\2022\00a0\00a0';
+          color: @almost-black;
+          font-size: 30px;
+        }
+        &:first-child:before {
+          content: '';
+        }
+      }
+    }
   }
-  h1 {
-    top: 5%;
-  }
-  p {
-    position: relative;
-    font-size: 32px;
-    font-weight: 600;
-    color: @off-white;
+  .about-section {
+    .card;
   }
 }
 
@@ -82,17 +128,15 @@
     position: relative;
     color: @off-white;
     font-size: 80px;
+    font-weight: 400;
     word-break: break-word;
     a {
       text-decoration: none;
       color: @white;
+      font-weight: 400;
       font-style: italic;
     }
   }
-}
-
-#home-section, #resume-section, #about-section, #contact-section {
-  background-color: transparent;
 }
 
 .home-nav {
@@ -117,22 +161,12 @@
   .home-link {
     display: none;
   }
-  .about-content h1, h2 {
-    font-size: 72px;
-  }
-  .about-content p {
-    margin: 0 5px 0 5px;
-  }
   #home-next {
     display: none;
   }
-  .nonstatic-logos {
+  .about-section {
     display: block;
-    margin-top: 150px;
-    text-align: center;
-  }
-  .home-logos {
-    display: none;
+    margin: 2.5%;
   }
 }
 
@@ -151,9 +185,6 @@
       .anim-grow;
     }
   }
-  .about-content p {
-    margin: 0 25% 0 25%;
-  }
   .resume-content ul {
     margin: 10% 0 0 0;
   }
@@ -169,23 +200,11 @@
       .anim-bob;
     }
   }
-  .nonstatic-logos {
-    display: none;
-  }
-  .home-logos {
+  .about-section {
     display: inline-block;
+    width: 825px;
+    height: 455px;
   }
-}
-
-.home-logos {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  padding: 0 0 1% 0;
-  text-align: center;
-  z-index: 5;
-  .svg-link;
 }
 
 .svg-link {
@@ -206,6 +225,21 @@
   width: 100px;
   height: 100px;
   .anim-float;
+}
+
+.nonstatic-logos {
+  display: block;
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  bottom: 0;
+  margin-bottom: 1%;
+}
+
+.card {
+  background: white;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
 }
 
 #fp-nav ul li a span, .fp-slidesNav ul li a span {
