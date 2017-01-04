@@ -10,11 +10,10 @@ $(document).ready(function() {
       if(j<i) {
         c.removeClass('expand-margin');
         c.addClass('shrink-margin');
-      } else if(j>i) {
-        n.removeClass('shrink-margin');
-        n.addClass('expand-margin');
-        setTimeout($.fn.fullpage.reBuild, 1000);
       }
+      n.removeClass('shrink-margin');
+      n.addClass('expand-margin');
+      setTimeout($.fn.fullpage.reBuild, 1000);
     }
   });
 });

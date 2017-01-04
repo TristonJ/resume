@@ -1,16 +1,23 @@
 @import "variables";
 @import "animations";
 
-#main-title {
-  font-size: 100px;
-  font-weight: 200;
-  color: @white;
-  text-transform: uppercase;
+//TODO:
+#home-next {
+  display: none;
 }
 
-#subtitle {
-  font-size: 70px;
-  color: @almost-white;
+/**
+ * All Sections
+ */
+#home-section, #about-section, #contact-section {
+  background-color: transparent;
+}
+
+.home-content, .about-content, .contact-content {
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  text-align: center;
 }
 
 .home-background {
@@ -23,73 +30,122 @@
   z-index: -1;
 }
 
-#home-section, #resume-section, #about-section, #contact-section {
-  background-color: transparent;
-}
-
-.home-content, .resume-content, .about-content, .contact-content {
-  left: 0;
-  width: 100%;
-  overflow: hidden;
-  text-align: center;
-}
-
-.resume-content {
-  h1 {
-    position: relative;
-    color: @off-white;
-    font-size: 80px;
-    margin-left: 10px;
-    margin-right: 10px;
+/**
+ * 'Welcome' Section
+ */
+.home-content {
+  #main-title {
+    font-size: @font-size-xlarge;
+    @media @very-thin, @very-short {
+      font-size: @font-size-large;
+    }
+    @media @desktop {
+      font-size: @font-size-xxlarge;
+    }
+    font-weight: 200;
+    color: @white;
+    text-transform: uppercase;
   }
-  ul {
-    list-style: none;
+
+  #subtitle {
+    font-size: @font-size-large;
+    @media @very-thin, @very-short {
+      font-size: @font-size-medium;
+    }
+    @media @desktop {
+      font-size: @font-size-xlarge;
+    }
+    color: @almost-white;
+  }
+
+  .home-nav {
+    display: block;
+    font-size: @font-size-medium;
+    @media @very-thin, @very-short {
+      font-size: @font-size-small;
+    }
+    @media @desktop {
+      font-size: @font-size-large;
+    }
+    padding: 0;
+    margin: 0;
     li {
       display: inline-block;
-      .anim-grow;
-      a {
-        text-decoration: none;
-        font-size: 50px;
-        text-transform: lowercase;
-        color: @almost-white;
-        padding: 0 .5em 0 .5em;
-      }
+      list-style: none;
+      .anim-float;
+    }
+    a {
+      text-decoration: none;
+      text-transform: lowercase;
+      color: @almost-white;
+      padding: 0 .5em 0 .5em;
     }
   }
 }
 
+/**
+ * About Section
+ */
 .about-content {
   color: @off-white;
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   padding-bottom: 1%;
+
+  // For some reason I couldn't get the inner to work
+  .expand-margin {
+    @media @mobile, @tablet {
+      margin: 1%;
+    }
+    @media @desktop {
+      margin: 10px;
+    }
+  }
+  .shrink-margin {
+    @media @mobile, @tablet {
+      margin-top: .1%;
+      margin-bottom: .1%;
+    }
+    @media @desktop {
+      margin: 1px;
+    }
+  }
+
   .about-section {
     display: inline-table;
     position: relative;
-    padding: 20px;
+    padding: 10px;
     transition: margin 1s ease-in-out;
+    vertical-align: middle;
     .card;
+
+    @media @mobile, @tablet {
+      display: inline-block;
+      margin: 1%;
+      width: 90%;
+    }
+
+    @media @desktop {
+      width: 412px;
+      height: 309px;
+    }
+
     &:hover {
       box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
     }
-    .about-title, .about-title-white {
+    .about-title {
+      color: @black;
       position: relative;
-      font-size: 80px;
+      font-size: @font-size-medium;
       font-weight: 300;
       margin-left: 5px;
       margin-right: 5px;
-    }
-    .about-title {
-      color: @black;
-    }
-    .about-title-white {
-      color: @white;
     }
     p {
       text-indent: 50px;
       text-align: left;
       position: relative;
-      font-size: 32px;
+      font-size: @font-size-small;
       font-weight: 300;
       color: @almost-black;
     }
@@ -103,13 +159,13 @@
       li {
         display: inline-block;
         color: @almost-black;
-        font-size: 32px;
+        font-size: @font-size-small;
         font-weight: 300;
-        padding: 0 .2em;
+        padding: 0 .3em;
         &:before {
           content: '\00a0\2022\00a0\00a0';
           color: @almost-black;
-          font-size: 30px;
+          font-size: @font-size-small;
         }
         &:first-child:before {
           content: '';
@@ -119,13 +175,16 @@
   }
 }
 
+/**
+ * Contact Section
+ */
 .contact-content {
   color: @off-white;
   text-align: center;
   h1 {
     position: relative;
     color: @off-white;
-    font-size: 80px;
+    font-size: @font-size-large;
     font-weight: 400;
     word-break: break-word;
     a {
@@ -135,101 +194,34 @@
       font-style: italic;
     }
   }
-}
-
-.home-nav {
-  display: block;
-  font-size: 52px;
-  padding: 0;
-  margin: 0;
-  li {
-    display: inline-block;
-    list-style: none;
-    .anim-float;
-  }
-  a {
-    text-decoration: none;
-    text-transform: lowercase;
-    color: @almost-white;
-    padding: 0 .5em 0 .5em;
-  }
-}
-
-@media all and (max-width: 1025px) {
-  .home-link {
-    display: none;
-  }
-  #home-next {
-    display: none;
-  }
-  .about-section {
-    display: block;
-    margin: 2.5%;
-  }
-  .about-content {
-    .expand-margin {
-      margin: 2.5%;
-    }
-    .shrink-margin {
-      margin-top: 1%;
-      margin-bottom: 1%;
-    }
-  }
-  .svg-logo {
-    width: 160px;
-    height: 160px;
-  }
-}
-
-@media all and (min-width: 1025px) {
   .home-link {
     display: block;
-    position: fixed;
+    position: absolute;
     left: 0;
     bottom: 0;
     padding: 0 0 15px 15px;
     z-index: 100;
     .svg-link;
     a svg {
-      width: 60px;
-      height: 60px;
       .anim-grow;
+      @media @tablet {
+        width: 30px;
+        height: 30px;
+      }
+      @media @desktop {
+        width: 60px;
+        height: 60px;
+      }
     }
-  }
-  .resume-content ul {
-    margin: 10% 0 0 0;
-  }
-  #home-next {
-    display: block;
-    text-align: center;
-    position: relative;
-    margin: 200px 0 0 0;
-    .svg-link;
-    svg {
-      width: 120px;
-      height: 120px;
-      .anim-bob;
+    @media @mobile {
+      display: none;
     }
-  }
-  .about-section {
-    display: inline-block;
-    width: 825px;
-    height: 455px;
-  }
-  .about-content {
-    .expand-margin {
-      margin: 30px;
-    }
-    .shrink-margin {
-      margin: 10px;
-    }
-  }
-  .svg-logo {
-    width: 100px;
-    height: 100px;
   }
 }
 
+/**
+ * Utility Classes
+ */
 .svg-link {
   a {
     position: relative;
@@ -246,6 +238,18 @@
 .svg-logo {
   display: inline-block;
   .anim-float;
+  @media @mobile {
+    width: 60px;
+    height: 60px;
+  }
+  @media @tablet {
+    width: 80px;
+    height: 80px;
+  }
+  @media @desktop {
+    width: 100px;
+    height: 100px;
+  }
 }
 
 .nonstatic-logos {
@@ -255,13 +259,12 @@
   text-align: center;
   bottom: 0;
   margin-bottom: 1%;
+  @media @very-short {
+    position: relative;
+  }
 }
 
 .card {
   background: white;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-}
-
-#fp-nav ul li a span, .fp-slidesNav ul li a span {
-  background: @almost-white !important;
 }
