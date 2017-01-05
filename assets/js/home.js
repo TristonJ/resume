@@ -1,6 +1,6 @@
 $(document).ready(function() {
   $('#fullpage').fullpage({
-    navigation:true,
+    navigation:false,
     fitToSectionDelay:200,
     scrollOverflow:true,
     onLeave: function(i, j, d) {
