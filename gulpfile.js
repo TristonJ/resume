@@ -5,11 +5,22 @@ var gulp = require('gulp'),
     concat = require('gulp-concat'),
     uglify = require('gulp-uglify'),
     rename = require('gulp-rename'),
+    clean = require('gulp-clean'),
     AutoPrefix = require('less-plugin-autoprefix');
 
 var autoprefix = new AutoPrefix({browsers: ['last 2 versions', '> 5%']});
 
-gulp.task('less', () =>
+gulp.task('cleanCSS', () =>
+  gulp.src('build/css', {read:false})
+      .pipe(clean())
+);
+
+gulp.task('cleanJS', () =>
+  gulp.src('build/js', {read:false})
+      .pipe(clean())
+);
+
+gulp.task('less', ['cleanCSS'], () =>
   gulp.src('./assets/less/**/*.less')
       .pipe(less({plugins: [autoprefix]}))
       .pipe(gulp.dest('./build/css'))
@@ -30,7 +41,7 @@ gulp.task('minifyCSS', ['concatCSS'], () =>
 
 gulp.task('buildCSS', ['minifyCSS']);
 
-gulp.task('concatJS', () =>
+gulp.task('concatJS', ['cleanJS'], () =>
   gulp.src('./assets/js/**/*.js')
       .pipe(concat('app.js'))
       .pipe(gulp.dest('./build'))

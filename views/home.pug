@@ -3,9 +3,12 @@ extends layout.pug
 block content
   div(class="home-background")
   div(id="fullpage")
-    div(class="section", data-anchor="home", id="home-section")
-      include includes/home.pug
-    div(class="section", data-anchor="about", id="about-section")
-      include includes/about.pug
-    div(class="section", data-anchor="contact", id="contact-section")
-      include includes/contact.pug
+    div(class="section", id="home")
+      div(class="section-container")
+        include includes/home.pug
+    div(class="section", id="about")
+      div(class="section-container")
+        include includes/about.pug
+    div(class="section", id="contact")
+      div(class="section-container")
+        include includes/contact.pug

@@ -6,6 +6,7 @@
   "undef": true,
   "globals": {
     "$": false,
-    "document": false
+    "document": false,
+    "window": false
   }
 }
