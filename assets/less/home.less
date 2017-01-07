@@ -284,6 +284,31 @@
   }
 }
 
+.source-logo {
+  display: block;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  padding: 0 15px 15px 0;
+  z-index: 100;
+  .svg-link;
+  a svg {
+    .anim-grow;
+    @media @mobile {
+      width: 24px;
+      height: 24px;
+    }
+    @media @tablet {
+      width: 30px;
+      height: 30px;
+    }
+    @media @desktop {
+      width: 60px;
+      height: 60px;
+    }
+  }
+}
+
 .card {
   background: white;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
