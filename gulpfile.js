@@ -6,6 +6,7 @@ var gulp = require('gulp'),
     uglify = require('gulp-uglify'),
     rename = require('gulp-rename'),
     clean = require('gulp-clean'),
+    bust = require('gulp-buster'),
     AutoPrefix = require('less-plugin-autoprefix');
 
 var autoprefix = new AutoPrefix({browsers: ['last 2 versions', '> 5%']});
@@ -39,7 +40,13 @@ gulp.task('minifyCSS', ['concatCSS'], () =>
       .pipe(gulp.dest('./public/css'))
 );
 
-gulp.task('buildCSS', ['minifyCSS']);
+gulp.task('bustCSS', ['minifyCSS'], () =>
+  gulp.src('./public/css/app.min.css')
+      .pipe(bust({relativePath:'/public'}))
+      .pipe(gulp.dest('.'))
+);
+
+gulp.task('buildCSS', ['bustCSS']);
 
 gulp.task('concatJS', ['cleanJS'], () =>
   gulp.src('./assets/js/**/*.js')
@@ -54,7 +61,13 @@ gulp.task('minifyJS', ['concatJS'], () =>
       .pipe(gulp.dest('./public/js'))
 );
 
-gulp.task('buildJS', ['minifyJS']);
+gulp.task('bustJS', ['minifyJS'], () =>
+  gulp.src('./public/js/app.min.js')
+      .pipe(bust({relativePath:'/public'}))
+      .pipe(gulp.dest('.'))
+);
+
+gulp.task('buildJS', ['bustJS']);
 
 gulp.task('watch', () => {
   gulp.watch('./assets/js/*.js', ['buildJS']);

@@ -19,6 +19,7 @@
   "homepage": "https://github.com/TristonJ/triston-jones#readme",
   "dependencies": {
     "express": "^4.14.0",
+    "gulp-buster": "^1.1.0",
     "morgan": "^1.7.0",
     "pug": "^2.0.0-beta6"
   },

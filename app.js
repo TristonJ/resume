@@ -3,6 +3,8 @@ var express = require('express'),
 
 var app = express();
 
+// Busters file for cache busting
+const busters = require('./busters.json');
 const CACHE_TIME = 60 * 60 * 24 * 7;
 
 app.set('views', __dirname + '/views');
@@ -10,7 +12,7 @@ app.set('view engine', 'pug');
 app.use(morgan('dev'));
 app.use(express.static(__dirname + '/public', {maxAge: CACHE_TIME*1000}));
 
-// Cache all pages by default
+// Set request headers used for every route and include cache busting
 app.use((req, res, next) => {
   res.set('Cache-Control', 'public, max-age=' + CACHE_TIME);
   res.set('X-Powered-By', 'Triston Jones!');
@@ -20,6 +22,8 @@ app.use((req, res, next) => {
     "script-src 'self' https://cdnjs.cloudflare.com https://www.google-analytics.com;" +
     "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com;" +
     "font-src 'self' https://fonts.gstatic.com data:;");
+    
+  res.locals.busters = busters;
   next();
 });
 
