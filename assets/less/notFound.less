@@ -1,0 +1,38 @@
+@import "variables";
+
+.notfound-container {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  a {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    bottom: 7%;
+    text-decoration: none;
+    font-style: italic;
+  }
+}
+#gol {
+  position: relative;
+  @media @mobile {
+    padding-top: 20px;
+    width: 400px;
+    height: 400px;
+  }
+  @media @very-thin, @very-short {
+    padding-top: 20px;
+    width: 200px;
+    height: 200px;
+  }
+  @media @tablet {
+    padding-top: 30px;
+    width: 700px;
+    height: 700px;
+  }
+  @media @desktop {
+    padding-top: 30px;
+    width: 1000px;
+    height: 1000px;
+  }
+}

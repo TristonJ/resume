@@ -1,4 +1,12 @@
 extends layout.pug
 
 block content
-  h1 There's nothing to see here!
+  div(class="notfound-container")
+    noscript
+      center
+        h1 There's nothing to see here, man.
+        h2 Psst, turn on JavaScript for a cooler 404 page ;)
+      style.
+        #gol {display:none}
+    canvas(id="gol")
+    a(href="/") Take me home please

@@ -19,10 +19,10 @@ app.use((req, res, next) => {
   res.set('X-XSS-Protection', '1; mode=block');
   res.set('Content-Security-Policy',
     "default-src 'none'; img-src 'self' https://www.google-analytics.com;" +
-    "script-src 'self' https://cdnjs.cloudflare.com https://www.google-analytics.com;" +
+    "script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://www.google-analytics.com;" +
     "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com;" +
     "font-src 'self' https://fonts.gstatic.com data:;");
-    
+
   res.locals.busters = busters;
   next();
 });
