@@ -13,10 +13,13 @@ function GoL(id, options) {
 }
 
 var Seeds = [
-  {steps: 600, arr: [8015803766,5712926037,5713057109,5712926037,5847152470], width:33}, // Not Found
-  {steps: 875, arr: [32,8,103], width:7}, // Acorn
-  {steps: 130, arr: [2,192,71], width:8}, // Diehard
-  {steps: 800, arr: [29,16,3,13,21], width:5} // 'Infinite'
+  {steps: 780, arr: [8015803766,5712926037,5713057109,5712926037,5847152470], width:33}, // Not Found
+  {steps: 280, arr: [32,8,103], width:7}, // Acorn
+  {steps: 145, arr: [2,192,71], width:8}, // Diehard
+  {steps: 620, arr: [29,16,3,13,21], width:5}, // 'Infinite'
+  {steps: 200, arr: [2048,10240,12632067,17874947,51573735424,51576055808, // Glider gun
+    34080768, 17825792, 12582912], width:36},
+  {steps: 250, arr: [3,6,2], width:3} // R-Pentomino
 ];
 
 GoL.prototype = {
