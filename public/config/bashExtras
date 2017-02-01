@@ -1,0 +1,46 @@
+# Set vim as the default editor 'cause fuck nano
+export VISUAL="/usr/bin/vim"
+export EDITOR="$VISUAL"
+
+# colorize json if underscore-cli is installed
+jsonColorize() {
+  if hash underscore 2>/dev/null; then
+    underscore print --color "$@"
+  else
+    echo "$@"
+  fi
+}
+
+# alias for grep on history
+alias gh='history | grep -a '
+
+# alias for pretty json
+alias json='python -m json.tool | jsonColorize'
+
+# alias for pretty json piped to more
+alias mjson='json | more'
+
+# get the sha for git
+get_sha() {
+  git rev-parse --short HEAD 2>/dev/null
+}
+
+# get all changes in last git merge
+alias last-merge='git log $(git merge-base --octopus $(git log -1 --merges --pretty=format:%P))..$(git log -1 --merges --pretty=format:%H) --boundary --graph --pretty=oneline --abbrev-commit --no-merges'
+
+# get the return status of the last command
+get_status() {
+  local EXIT="$?"
+  if [ $EXIT != 0 ]; then
+    echo "[\033[1A[\033[0m"
+  else
+    echo "FIN"
+  fi
+}
+
+# custom terminal colors and prompt
+export GIT_PS1_SHOWDIRTYSTATE=true
+export GIT_PS1_SHOWUNTRACKEDFILES=true
+PROMPT_COMMAND='__git_ps1 "\033[0;32m[%s $(get_sha)]\n"'
+export PS1='\[\e]0;\h:/\W\a\]\[\033[0;35m\]\h:\[\033[0;33m\]/\W\$\[\033[0;00m\] '
+
