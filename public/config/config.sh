@@ -1,7 +1,7 @@
-HOST="https://www.tristonjones.com/"
-BASH=$HOST"config/bashExtras";
-CONFIG=$HOST"config/config.fish";
-TMUX=$HOST"config/tmux.conf";
+HOST="https://www.tristonjones.com/public/config/"
+BASH=$HOST"bashExtras";
+CONFIG=$HOST"config.fish";
+TMUX=$HOST"tmux.conf";
 
 # Install fish shell and tmux
 sudo apt-add-repository ppa:fish-shell/release-2;
