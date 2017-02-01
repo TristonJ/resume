@@ -1,14 +1,17 @@
-HOST="https://www.tristonjones.com/public/config/"
+HOST="https://www.tristonjones.com/config/"
 BASH=$HOST"bashExtras";
 CONFIG=$HOST"config.fish";
 TMUX=$HOST"tmux.conf";
 
-# Install fish shell and tmux
+# Install fish shell, tmux, git, and xclip
 sudo apt-add-repository ppa:fish-shell/release-2;
-sudo apt-get update && sudo apt-get install fish tmux;
+sudo apt-get update && sudo apt-get install fish tmux git xclip;
 chsh -s /usr/bin/fish;
 
-[[ -d $HOME/.config/fish ]] || mkdir -p $HOME/.config/fish;
+# Create the fish config directory if it does not exist
+if [ ! -d $HOME/.config/fish ]; then
+   mkdir -p $HOME/.config/fish;
+fi
 
 # Install my bash extras
 curl -o bashExtras $BASH;
